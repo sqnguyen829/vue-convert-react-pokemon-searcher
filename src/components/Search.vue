@@ -3,7 +3,7 @@
       <div class="ui icon input">
         <input 
         type="text" 
-        @change="changeSearch" 
+        @keyup="changeSearch" 
         v-model="inputV"/>
         <i class="search icon" />
       </div>

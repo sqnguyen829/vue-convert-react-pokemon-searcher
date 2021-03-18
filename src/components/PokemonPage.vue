@@ -5,7 +5,7 @@
             <br />
             <PokemonForm />
             <br />
-            <Search v-on:update-search="$emit('update-search')"/>
+            <!-- <Search v-on:update-search="$emit('update-search')"/> -->
             <br />
             <PokemonCollection :pokemons="pokemons"/>
         <!-- </Container> -->
@@ -14,7 +14,7 @@
 
 <script>
 import PokemonForm from './PokemonForm'
-import Search from './Search'
+// import Search from './Search'
 import PokemonCollection from './PokemonCollection'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     props:["pokemons"],
     components:{
         PokemonForm,
-        Search,
+        // Search,
         PokemonCollection
     }
 }

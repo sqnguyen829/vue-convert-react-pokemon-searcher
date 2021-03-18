@@ -1,5 +1,6 @@
 <template>
   <div class="App" :style="{'background':'rgb(226, 224, 224)'}">
+    <Search v-on:update-search="updateSearch"/>
     <PokemonPage 
       :pokemons="pokemons | searchFilter(searchterm)"
       :searchterm="searchterm"
@@ -9,13 +10,13 @@
 
 <script>
 import PokemonPage from './components/PokemonPage'
-// import Search from './components/Search'
+import Search from './components/Search'
 
 export default {
   name: 'App',
   components: {
     PokemonPage,
-    // Search,
+    Search,
   },
   data() {
     return{
