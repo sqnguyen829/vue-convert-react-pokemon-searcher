@@ -5,7 +5,7 @@
             <br />
             <PokemonForm />
             <br />
-            <Search />
+            <Search v-on:update-search="$emit('update-search')"/>
             <br />
             <PokemonCollection :pokemons="pokemons"/>
         <!-- </Container> -->

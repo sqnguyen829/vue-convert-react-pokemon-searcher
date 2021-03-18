@@ -1,7 +1,10 @@
 <template>
     <b-container>
         <b-row cols="6">
-            <PokemonCard :key="pokemon.id" :pokemon="pokemon" v-for="pokemon in pokemons"/>
+            <PokemonCard 
+            :key="pokemon.id" 
+            :pokemon="pokemon" 
+            v-for="pokemon in pokemons"/>
         </b-row>
     </b-container>
 </template>
