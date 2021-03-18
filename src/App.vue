@@ -1,6 +1,6 @@
 <template>
-  <div class="App">
-    <PokemonPage/>
+  <div class="App" :style="{'background':'rgb(226, 224, 224)'}">
+    <PokemonPage :pokemons="pokemons"/>
   </div>
 </template>
 
@@ -11,6 +11,20 @@ export default {
   name: 'App',
   components: {
     PokemonPage
+  },
+  data() {
+    return{
+      pokemons:[],
+      searchterm:''
+    }
+  },
+  created() {
+    fetch('http://localhost:3000/pokemon', {
+      method:'GET'
+    })
+    .then(res => res.json())
+    .then(data => this.pokemons = data)
+    .catch(err => console.log(err))
   }
 }
 </script>

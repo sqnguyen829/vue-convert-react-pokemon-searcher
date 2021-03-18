@@ -7,7 +7,7 @@
             <br />
             <Search />
             <br />
-            <PokemonCollection />
+            <PokemonCollection :pokemons="pokemons"/>
         <!-- </Container> -->
     </div>
 </template>
@@ -19,6 +19,7 @@ import PokemonCollection from './PokemonCollection'
 
 export default {
     name:'PokemonPage',
+    props:["pokemons"],
     components:{
         PokemonForm,
         Search,
