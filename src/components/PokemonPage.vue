@@ -1,10 +1,10 @@
 <template>
     <div>
         <!-- <Container> -->
-            <h1>Pokemon Searcher</h1>
+            <!-- <h1>Pokemon Searcher</h1>
             <br />
-            <PokemonForm />
-            <br />
+            <PokemonForm v-on:add-poke="$emit('add-poke', poke)"/>
+            <br /> -->
             <!-- <Search v-on:update-search="$emit('update-search')"/> -->
             <br />
             <PokemonCollection :pokemons="pokemons"/>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import PokemonForm from './PokemonForm'
+// import PokemonForm from './PokemonForm'
 // import Search from './Search'
 import PokemonCollection from './PokemonCollection'
 
@@ -21,7 +21,7 @@ export default {
     name:'PokemonPage',
     props:["pokemons"],
     components:{
-        PokemonForm,
+        // PokemonForm,
         // Search,
         PokemonCollection
     }

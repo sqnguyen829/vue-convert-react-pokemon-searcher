@@ -1,22 +1,31 @@
 <template>
   <div class="App" :style="{'background':'rgb(226, 224, 224)'}">
+    <h1>Pokemon Searcher</h1>
+    <br />
+    <PokemonForm v-on:add-poke="addPoke"/>
+    <br />
     <Search v-on:update-search="updateSearch"/>
+    <br />
     <PokemonPage 
       :pokemons="pokemons | searchFilter(searchterm)"
       :searchterm="searchterm"
-      v-on:search="updateSearch"/>
+      v-on:search="updateSearch"
+      v-on:add-poke="addPoke"
+      />
   </div>
 </template>
 
 <script>
 import PokemonPage from './components/PokemonPage'
 import Search from './components/Search'
+import PokemonForm from './components/PokemonForm'
 
 export default {
   name: 'App',
   components: {
     PokemonPage,
     Search,
+    PokemonForm
   },
   data() {
     return{
@@ -38,6 +47,19 @@ export default {
     updateSearch(stuff) {
       console.log(stuff)
       this.searchterm = stuff
+    },
+    addPoke(poke) {
+      console.log(poke)
+      fetch('http://localhost:3000/pokemon', {
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(poke)
+      })
+      .then(res => res.json())
+      .then(data => this.pokemons = [...this.pokemons, data])
+      .catch(err => console.log(err))
     }
   },
   filters: {
